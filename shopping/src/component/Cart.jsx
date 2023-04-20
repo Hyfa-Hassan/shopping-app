@@ -6,8 +6,9 @@ import { NavLink } from 'react-router-dom'
 
 
 const Cart = () => {
-    const state = useSelector((state)=> state.addItem)
+    const state = useSelector((state)=> state.handleCart)
     const dispatch = useDispatch()
+    console.log("state", state)
 
     const handleClose = (item) => {
         dispatch(delCart(item))
@@ -20,7 +21,7 @@ const Cart = () => {
                     <button onClick={()=>handleClose(cartItem)} className="btn-close float-end" aria-label="Close"></button>
                     <div className="row justify-content-center">
                         <div className="col-md-4">
-                            <img src={cartItem.img} alt={cartItem.title} height="200px" width="180px" />
+                            <img src={cartItem.image} alt={cartItem.title} height="200px" width="180px" />
                         </div>
                         <div className="col-md-4">
                             <h3>{cartItem.title}</h3>
