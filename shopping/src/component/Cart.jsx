@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import {delItem} from '../redux/actions/index'
+import {delCart} from '../redux/action/index'
 import { NavLink } from 'react-router-dom'
 
 
@@ -10,7 +10,7 @@ const Cart = () => {
     const dispatch = useDispatch()
 
     const handleClose = (item) => {
-        dispatch(delItem(item))
+        dispatch(delCart(item))
     }
 
     const cartItems = (cartItem) => {
@@ -56,9 +56,9 @@ const Cart = () => {
 
     return (
         <>
-            {state.length === 0 && emptyCart()}
-            {state.length !== 0 && state.map(cartItems)}
-            {state.length !== 0 && button()}
+            {state && state.length === 0 && emptyCart()}
+            {state && state.length !== 0 && state.map(cartItems)}
+            {state && state.length !== 0 && button()}
         </>
     )
 }
